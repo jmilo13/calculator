@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;  
+}
+
+body, main, #keyboard{
+    display: flex;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-wrap: wrap;
+}
+
+main{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+main #calculator{
+    width: 30rem;
+    padding: 0.5rem;
+    background: gainsboro;
+    margin: auto;
+    box-shadow: 0px 5px 13px 0px;
+}
+
+main #calculator #screen{
+    background: #efefef;
+    width: 100%;
+    height: 8rem;
+    margin-bottom: 0.5rem;
+}
+
+main #calculator #keyboard{
+    width: 100%;
+    height: 23.5rem;
+    flex-wrap: wrap;
+}
+
+#keyboard .button{
+    width: 25%;
+    border: solid 0.1rem #b3a4a4;
+}
+
+#keyboard .operator{
+background: #dcdbdb;
+}
+
+#keyboard .result{
+    background: #a7a7ef;
+}
