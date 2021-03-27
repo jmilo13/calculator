@@ -26,6 +26,24 @@ addEventListener('keydown', (event) => {
     }
 })
 
+function delateProcess (){
+    process.innerHTML = '0'
+}
+
+function delateOperation (){
+    operation.innerHTML = ''
+}
+
+function totalDelate (){
+    delateProcess()
+    delateOperation() 
+}
+
+function result (calc) {
+    let result = (calc%1) === 0 ? calc : parseFloat(calc.toFixed(4))
+    return process.innerHTML = result.toString().length>15 ? result.toExponential(6) : result
+}
+
 function addNumber (element){
     const igualACero = process.innerHTML === '0'
     igualACero ? process.innerHTML=element : process.innerHTML=process.innerHTML+element
@@ -48,43 +66,43 @@ function delateDigit (){
 }
 
 function operate (operator){
-    operation.innerHTML = `${process.innerHTML} ${operator}` 
-    process.innerHTML= '0'
+    if(!operation.innerHTML){
+        operation.innerHTML = `${process.innerHTML} ${operator}` 
+    }else{
+        operation.innerHTML = `${operation.innerHTML} ${operator}` 
+    }
+    delateProcess()
 }
 
 function resolve (){
-    process.innerHTML = eval(`${operation.innerHTML} ${process.innerHTML}`)
-    operation.innerHTML = ''
+    let equation = `${operation.innerHTML} ${process.innerHTML}`
+    let calc = eval(equation)
+    result(calc)
+    operation.innerHTML = equation
 }
 
 function changeSign (){
     process.innerHTML = (parseInt(process.innerHTML))*-1
 }
 
-function porcentaje (){
-    
+function oneOverX (){
+    let x = process.innerHTML
+    process.innerHTML = `${(1/parseInt(x)).toFixed(10)}`
 }
 
-function unoSobreX (){
-    
+function square (){
+    let calc = process.innerHTML**2
+    result(calc)
 }
 
-function elevarAlCuadrado (){
-    
+function squareRoot (){
+    let calc = Math.sqrt(process.innerHTML)
+    result(calc)
 }
 
-function raizCuadrada (){
-    
-}
-
-
-
-
-function borrarParcial (){
-
-}
-
-function borrarTotal (){
-
+function porcentage (){
+    let calc = process.innerHTML / 100
+    result(calc)
+    resolve()
 }
 

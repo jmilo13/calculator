@@ -11,6 +11,22 @@ body, main, #keyboard{
     display: flex;
 }
 
+.draw-space{
+    background: #c1b7b7;
+    width: 95vw;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 13px 0px;
+}
+
+.draw-space__tablet{
+    background: #efefef;
+    width: 95%;
+    height: 95%
+}
+
 body{
     width: 100vw;
     height: 100vh;
@@ -19,17 +35,20 @@ body{
 }
 
 main{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
+    background: #00000057;
 }
 
 main #calculator{
     width: 30rem;
     padding: 0.5rem;
     background: gainsboro;
-    margin: auto;
     box-shadow: 0px 5px 13px 0px;
+    margin-bottom: 3rem;
 }
 
 main #calculator #screen{
