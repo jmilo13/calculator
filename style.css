@@ -37,6 +37,20 @@ main #calculator #screen{
     width: 100%;
     height: 8rem;
     margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+main #calculator #screen #operation{
+    color: #a9a9a9;
+    margin-bottom: 1rem;
+}
+
+main #calculator #screen #process{
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
 }
 
 main #calculator #keyboard{
@@ -51,9 +65,11 @@ main #calculator #keyboard{
 }
 
 #keyboard .operator{
-background: #dcdbdb;
+
+background: #dcdbdb;
 }
 
 #keyboard .result{
-    background: #a7a7ef;
+    
+background: #a7a7ef;
 }

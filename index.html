@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Calculadora</title>
         <meta name="description" content="Calculadora funcional para tus operaciones matemáticas">
@@ -12,32 +12,34 @@
         <main>
             <section id="calculator">
                 <div id="screen">
+                    <h1 id="operation"></h1>
+                    <h1 id="process">0</h1>
                 </div>
                 <div id="keyboard">
-                    <button type="button" class="button operator">%</button>
-                    <button type="button" class="button operator">CE</button>
-                    <button type="button" class="button operator">C</button>
-                    <button type="button" class="button operator">BORRAR</button>
-                    <button type="button" class="button operator">1/x</button>
-                    <button type="button" class="button operator">x2</button>
-                    <button type="button" class="button operator">raiz2</button>
-                    <button type="button" class="button operator">/</button>
-                    <button type="button" class="button number">7</button>
-                    <button type="button" class="button number">8</button>
-                    <button type="button" class="button number">9</button>
-                    <button type="button" class="button operator">X</button>
-                    <button type="button" class="button number">4</button>
-                    <button type="button" class="button number">5</button>
-                    <button type="button" class="button number">6</button>
-                    <button type="button" class="button operator">-</button>
-                    <button type="button" class="button number">1</button>
-                    <button type="button" class="button number">2</button>
-                    <button type="button" class="button number">3</button>
-                    <button type="button" class="button operator">+</button>
-                    <button type="button" class="button number">+/-</button>
-                    <button type="button" class="button number">0</button>
-                    <button type="button" class="button number">,</button>
-                    <button type="button" class="button result">=</button>
+                    <button type="button" class="button operator" >%</button>
+                    <button type="button" class="button operator" >CE</button>
+                    <button type="button" class="button operator" >C</button>
+                    <button type="button" class="button operator" onclick = "delateDigit()" >BORRAR</button>
+                    <button type="button" class="button operator" >1/x</button>
+                    <button type="button" class="button operator" >x2</button>
+                    <button type="button" class="button operator" >raiz2</button>
+                    <button type="button" class="button operator" onclick = "operate('/')">/</button>
+                    <button type="button" class="button number" onclick = "addNumber(7)">7</button>
+                    <button type="button" class="button number" onclick = "addNumber(8)">8</button>
+                    <button type="button" class="button number" onclick = "addNumber(9)">9</button>
+                    <button type="button" class="button operator" onclick = "operate('*')">X</button>
+                    <button type="button" class="button number" onclick = "addNumber(4)">4</button>
+                    <button type="button" class="button number" onclick = "addNumber(5)">5</button>
+                    <button type="button" class="button number" onclick = "addNumber(6)">6</button>
+                    <button type="button" class="button operator" onclick = "operate('-')">-</button>
+                    <button type="button" class="button number" onclick = "addNumber(1)">1</button>
+                    <button type="button" class="button number" onclick = "addNumber(2)">2</button>
+                    <button type="button" class="button number" onclick = "addNumber(3)">3</button>
+                    <button type="button" class="button operator" onclick = "operate('+')">+</button>
+                    <button type="button" class="button number" onclick = "changeSign ()">+/-</button>
+                    <button type="button" class="button number" onclick = "addNumber(0)">0</button>
+                    <button type="button" class="button number" onclick = "addDecimal('.')">.</button>
+                    <button type="button" class="button result" onclick = "resolve('+')">=</button>
                 </div>
             </section>
         <script src="./main.js"></script>
