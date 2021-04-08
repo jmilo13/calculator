@@ -1,4 +1,3 @@
-const screen = document.getElementById('screen')
 const process = document.getElementById('process')
 const operation = document.getElementById('operation')
 const validOperator = ['+', '-', '*', '/']
@@ -58,7 +57,7 @@ function addDecimal (element){
 }
 
 function delateDigit (){
-    cifra = process.innerHTML[process.innerHTML.length - 1]
+    let cifra = process.innerHTML[process.innerHTML.length - 1]
     if(cifra === '.'){
         isDecimal = false
     }
@@ -82,7 +81,8 @@ function resolve (){
 }
 
 function changeSign (){
-    process.innerHTML = (parseInt(process.innerHTML))*-1
+    let calculate = (parseInt(process.innerHTML))*-1
+    process.innerHTML = calculate.toString()
 }
 
 function oneOverX (){
@@ -91,18 +91,73 @@ function oneOverX (){
 }
 
 function square (){
-    let calc = process.innerHTML**2
+    let numberInScreen = parseInt(process.innerHTML)
+    let calc = numberInScreen**2
     result(calc)
 }
 
 function squareRoot (){
-    let calc = Math.sqrt(process.innerHTML)
+    let numberInScreen = parseInt(process.innerHTML)
+    let calc = Math.sqrt(numberInScreen)
     result(calc)
 }
 
 function porcentage (){
-    let calc = process.innerHTML / 100
+    let numberInScreen = parseInt(process.innerHTML)
+    let calc = numberInScreen / 100
     result(calc)
     resolve()
 }
 
+//drawtablet
+const drawArea = document.getElementById('drawArea')
+const canvasArea = drawArea.getContext('2d')
+const lineColor = '#154360'
+const lineWidth = 2
+let xStartPosition
+let yStartPosition
+let isDrawing = false
+
+drawArea.addEventListener('pointerdown', startDraw)
+drawArea.addEventListener('pointermove', draw)
+window.addEventListener('pointerup', stopDraw)
+
+function startDraw (mouse) {
+    xStartPosition = mouse.offsetX
+    yStartPosition = mouse.offsetY
+    isDrawing = true
+    console.log('start')
+}
+
+function draw (mouse) {
+    if(isDrawing){
+        let xMousePosition = mouse.offsetX
+        let yMousePosition = mouse.offsetY
+        drawLine(canvasArea, lineColor, lineWidth, xStartPosition, yStartPosition, xMousePosition, yMousePosition)
+        xStartPosition = mouse.offsetX
+        yStartPosition = mouse.offsetY
+        console.log('draw')
+    }
+}
+
+function stopDraw (mouse){
+    if(isDrawing){
+        let xMousePosition = mouse.offsetX
+        let yMousePosition = mouse.offsetY
+        drawLine(canvasArea, lineColor, lineWidth, xStartPosition, yStartPosition, xMousePosition, yMousePosition)
+        xStartPosition = 0
+        yStartPosition = 0
+        isDrawing = false
+        console.log('end')
+    }
+}
+
+function drawLine (area, lineColor, lineWidth, xStart, yStart, xEnd, yEnd){
+    area.beginPath()
+    area.strokeStyle = lineColor
+    area.lineWidth = lineWidth
+    area.moveTo(xStart, yStart)
+    area.lineTo(xEnd, yEnd)
+    area.stroke()
+    area.closePath();
+}

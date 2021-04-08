@@ -12,19 +12,9 @@ body, main, #keyboard{
 }
 
 .draw-space{
-    background: #c1b7b7;
-    width: 95vw;
-    height: 25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: solid 4px #c1b7b7;
+    background-color: #efefef;
     box-shadow: 0px 5px 13px 0px;
-}
-
-.draw-space__tablet{
-    background: #efefef;
-    width: 95%;
-    height: 95%
 }
 
 body{
